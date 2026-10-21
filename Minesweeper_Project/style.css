@@ -1,0 +1,39 @@
+* { box-sizing: border-box; }
+:root { --bg:#0b1220; --panel:#121d30; --panel2:#19263c; --line:#2c3b55; --text:#eef4ff; --muted:#9db0cb; --accent:#72e0c1; --danger:#ff8d91; }
+body { margin:0; min-height:100vh; background:radial-gradient(ellipse at top,#172642 0%,var(--bg) 55%); color:var(--text); font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif; }
+.app { max-width:900px; margin:0 auto; padding:28px 18px 40px; }
+header { display:flex; align-items:center; justify-content:space-between; gap:18px; margin-bottom:24px; }
+.eyebrow { color:var(--accent); letter-spacing:.18em; font-size:.72rem; font-weight:800; margin:0 0 8px; }
+h1 { font-size:clamp(2rem,5vw,3.25rem); line-height:1; margin:0; letter-spacing:-.04em; }
+h1 span { color:var(--accent); }
+.subtitle { color:var(--muted); margin:10px 0 0; }
+button { cursor:pointer; color:var(--text); background:var(--panel2); border:1px solid var(--line); border-radius:12px; padding:11px 15px; font:inherit; font-weight:700; transition:transform .12s,border-color .12s; }
+button:hover { border-color:var(--accent); transform:translateY(-1px); }
+button:focus-visible { outline:3px solid var(--accent); outline-offset:2px; }
+button.primary { background:var(--accent); color:#08201b; border-color:transparent; }
+.dashboard { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:14px; }
+.stat { background:rgba(18,29,48,.92); border:1px solid var(--line); border-radius:15px; padding:14px 16px; }
+.stat-label { display:block; color:var(--muted); font-size:.7rem; font-weight:800; letter-spacing:.09em; margin-bottom:7px; }
+.stat strong { font-size:1.45rem; }
+.toolbar { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin:14px 0; }
+.mode-toggle { display:flex; gap:9px; align-items:center; color:var(--muted); font-size:.92rem; }
+.mode-toggle input { accent-color:var(--accent); width:17px; height:17px; }
+.ai-buttons { display:flex; flex-wrap:wrap; gap:8px; }
+.message { min-height:44px; color:#d5e3f8; background:rgba(25,38,60,.72); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:16px 0; }
+.message.good { border-color:#368b76; color:#b5ffe8; }
+.message.warn { border-color:#a46e42; color:#ffd6ad; }
+.board { display:grid; grid-template-columns:repeat(10,minmax(0,1fr)); gap:5px; width:min(100%,620px); margin:0 auto; padding:10px; background:#101a2b; border:1px solid var(--line); border-radius:16px; }
+.cell { aspect-ratio:1; min-width:0; padding:0; display:flex; align-items:center; justify-content:center; border-radius:7px; font-weight:900; font-size:clamp(.8rem,2.6vw,1.25rem); background:#263751; border:1px solid #354967; color:#eaf2ff; user-select:none; }
+.cell.hidden:hover { background:#334965; }
+.cell.revealed { background:#e1eaf6; color:#25364d; border-color:#cbd9e9; cursor:default; }
+.cell.flagged { background:#3a3040; border-color:#a96d8a; }
+.cell.mine { background:#5b2835; color:#fff; }
+.cell.hint-safe { box-shadow:inset 0 0 0 3px #5be0b5; }
+.cell.hint-mine { box-shadow:inset 0 0 0 3px #ff888e; }
+.cell.n1 { color:#2166d1; } .cell.n2 { color:#168252; } .cell.n3 { color:#d33d46; } .cell.n4 { color:#6944bf; } .cell.n5 { color:#9b4c20; } .cell.n6 { color:#168b98; } .cell.n7 { color:#202c3c; } .cell.n8 { color:#596579; }
+.legend { display:flex; flex-wrap:wrap; justify-content:center; gap:12px 20px; color:var(--muted); font-size:.82rem; margin:16px 0 22px; }
+.dot { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:6px; } .dot.safe { background:var(--accent); } .dot.mine { background:var(--danger); }
+.explain { background:var(--panel); border:1px solid var(--line); border-radius:13px; padding:14px 16px; color:var(--muted); line-height:1.55; }
+.explain summary { color:var(--text); cursor:pointer; font-weight:800; }
+footer { color:#7185a4; text-align:center; font-size:.8rem; margin-top:24px; }
+@media(max-width:560px) { .app{padding:20px 10px 30px} header{align-items:flex-start} header .primary{padding:10px;font-size:.85rem} .dashboard{gap:7px} .stat{padding:10px} .stat-label{font-size:.58rem} .stat strong{font-size:1.15rem} .board{gap:3px;padding:6px} .cell{border-radius:5px} .toolbar{align-items:flex-start; flex-direction:column} .ai-buttons{width:100%} .ai-buttons button{flex:1;padding:10px 8px;font-size:.85rem} }

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dò Mìn Logic — Minesweeper</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div>
+        <p class="eyebrow">TRÒ CHƠI TRÍ TUỆ</p>
+        <h1>Dò Mìn <span>Logic</span></h1>
+        <p class="subtitle">Suy luận logic • Lập kế hoạch • AI gợi ý</p>
+      </div>
+      <button id="newGame" class="primary">Chơi lại ↻</button>
+    </header>
+
+    <section class="dashboard" aria-label="Thông tin ván chơi">
+      <div class="stat"><span class="stat-label">MÌN CÒN LẠI</span><strong id="mineCount">15</strong></div>
+      <div class="stat"><span class="stat-label">THỜI GIAN</span><strong id="timer">00:00</strong></div>
+      <div class="stat"><span class="stat-label">TRẠNG THÁI</span><strong id="status">Sẵn sàng</strong></div>
+    </section>
+
+    <section class="toolbar">
+      <label class="mode-toggle"><input id="flagMode" type="checkbox"><span>🚩 Chế độ cắm cờ (dành cho điện thoại)</span></label>
+      <div class="ai-buttons">
+        <button id="hintBtn">💡 AI gợi ý</button>
+        <button id="aiMoveBtn">🧠 AI đi một nước</button>
+      </div>
+    </section>
+
+    <p id="message" class="message" role="status">Mở ô để bắt đầu. Số cho biết có bao nhiêu mìn ở 8 ô xung quanh.</p>
+    <div id="board" class="board" role="grid" aria-label="Bàn dò mìn"></div>
+    <section class="legend">
+      <span><b class="dot safe"></b> Ô an toàn</span>
+      <span><b class="dot mine"></b> Ô nghi có mìn</span>
+      <span>Máy tính: chuột trái mở ô, chuột phải cắm/bỏ cờ.</span>
+    </section>
+
+    <details class="explain">
+      <summary>AI suy luận như thế nào?</summary>
+      <p>AI xét từng ô số đã mở. Nếu số mìn của ô bằng số cờ đã đặt xung quanh, các ô chưa mở còn lại được suy ra là an toàn. Nếu số mìn bằng số cờ cộng số ô chưa mở, các ô chưa mở đó được suy ra là mìn.</p>
+      <p><strong>Lưu ý:</strong> Đây là AI suy luận theo luật cục bộ, không phải hệ thống học máy. Kết quả có thể sai nếu người chơi cắm cờ sai.</p>
+    </details>
+    <footer>Đồ án học tập • HTML, CSS và JavaScript thuần</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
